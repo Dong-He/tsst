@@ -1,4 +1,4 @@
-function [STFT,Vx,time,freqr]=time_synsq_stft_fw(sig,fs,sigma,m)
+function [STFT,Vx,time,freqr,win]=time_synsq_stft_fw(sig,fs,sigma,m)
 % Time-reassigned Synchrosqueezing Transform
 %
 % Input:
@@ -12,6 +12,7 @@ function [STFT,Vx,time,freqr]=time_synsq_stft_fw(sig,fs,sigma,m)
 %  Vx: Time-reassigned Synchrosqueezing Transform of x (columns associated with time t)
 %  time: time axis of Vx
 %  freqr: frequency axis of Vx
+%  win: window function for inverse transform
 % 
 % by Dong HE
 % Date: 2017.07
@@ -71,6 +72,7 @@ end
 
 freqr=freqr(1:halfN);   % halve the length of frequency axis for less burden
 gamma = 1e-6;       % threshold, for computational stability
+STFT((abs(STFT)<gamma)) = NaN; 
 CandidateGD =  real(tSTFT ./STFT  ) ;   
 
 clear tSTFT localspec_tSTFT localspec_STFT
