@@ -1,6 +1,8 @@
 # Time-reassigned synchrosqueezing transform
 We would be grateful if scientific publications resulting from TSST would cite our work properly.
 
+## The sampling frequency of the lamb toy signal is 2.4MHz.
+
 ```
 @article{he2019time,
   title={Time-reassigned synchrosqueezing transform: The algorithm and its applications in mechanical signal processing},
